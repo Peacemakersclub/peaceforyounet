@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin – Peace For You Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+            <h1 class="text-2xl font-bold mb-6 text-center">?? Mission Control</h1>
+            <input type="password" id="adminKey" placeholder="Enter admin key" class="w-full px-4 py-3 border rounded-lg mb-4">
+            <button onclick="login()" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Access Dashboard</button>
+            <p class="text-xs text-gray-500 text-center mt-4">Default key: peace2024</p>
+        </div>
+    </div>
+
+    <div id="dashboard" class="hidden">
+        <nav class="bg-gray-900 text-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center h-16">
+                    <span class="text-xl font-bold">?? Mission Control · Peace For You Network</span>
+                    <button onclick="logout()" class="text-gray-300 hover:text-white">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="text-3xl font-bold text-blue-600" id="totalStories">0</div>
+                    <div class="text-gray-600">Total Stories</div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="text-3xl font-bold text-green-600" id="totalUsers">0</div>
+                    <div class="text-gray-600">Contributors</div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="text-3xl font-bold text-purple-600" id="totalCountries">0</div>
+                    <div class="text-gray-600">Countries</div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="text-3xl font-bold text-orange-600" id="totalReactions">0</div>
+                    <div class="text-gray-600">Reactions</div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-semibold mb-4">Manage Content</h2>
+                <div id="contentList" class="space-y-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const key = document.getElementById('adminKey').value;
+            if (key === 'peace2024') {
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('dashboard').classList.remove('hidden');
+                loadDashboard();
+            } else {
+                alert('Invalid admin key');
+            }
+        }
+
+        function logout() {
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('dashboard').classList.add('hidden');
+        }
+
+        function loadDashboard() {
+            const content = JSON.parse(localStorage.getItem('peace_content') || '[]');
+            const users = JSON.parse(localStorage.getItem('peace_users') || '{}');
+            
+            document.getElementById('totalStories').textContent = content.length;
+            document.getElementById('totalUsers').textContent = Object.keys(users).length;
+            document.getElementById('totalCountries').textContent = [...new Set(content.map(c => c.author?.country).filter(Boolean))].length;
+            document.getElementById('totalReactions').textContent = content.reduce((sum, c) => sum + (c.reactions?.heart || 0), 0);
+
+            const list = document.getElementById('contentList');
+            if (content.length === 0) {
+                list.innerHTML = '<p class="text-gray-400 text-center">No content yet.</p>';
+                return;
+            }
+
+            list.innerHTML = content.slice().reverse().map((item, index) => `
+                <div class="p-4 border rounded-lg flex justify-between items-center hover:bg-gray-50">
+                    <div>
+                        <p class="font-semibold">${item.title || 'Untitled'} <span class="text-sm text-gray-500">(${item.type})</span></p>
+                        <p class="text-sm text-gray-500">By ${item.author?.name || 'Anonymous'} · ${item.author?.country || 'Unknown'} · ${new Date(item.timestamp).toLocaleDateString()}</p>
+                        <p class="text-sm text-gray-400">?? ${item.reactions?.heart || 0}</p>
+                    </div>
+                    <button onclick="deleteContent(${index})" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                </div>
+            `).join('');
+        }
+
+        function deleteContent(index) {
+            if (confirm('Delete this content?')) {
+                const content = JSON.parse(localStorage.getItem('peace_content') || '[]');
+                content.splice(index, 1);
+                localStorage.setItem('peace_content', JSON.stringify(content));
+                loadDashboard();
+            }
+        }
+    </script>
+</body>
+</html>

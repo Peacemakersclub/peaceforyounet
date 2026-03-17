@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story – Peace For You Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/peaceforyou/" class="text-2xl font-bold text-blue-600">??? Peace For You Network</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/peaceforyou/" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="/peaceforyou/our-story.html" class="text-blue-600 font-semibold">Our Peace</a>
+                    <a href="/peaceforyou/write/" class="text-gray-700 hover:text-blue-600">Share</a>
+                    <a href="/peaceforyou/read/" class="text-gray-700 hover:text-blue-600">Read</a>
+                    <a href="/peaceforyou/connect/" class="text-gray-700 hover:text-blue-600">Connect</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-24 pb-12 px-4 max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-8">Our Peace Story ???</h1>
+        
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Why We Started</h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">Peace For You Network was born from a simple belief: every voice matters. In a world that often feels divided, we wanted to create a space where anyone could share their thoughts on peace, unity, forgiveness, and hope.</p>
+            <p class="text-gray-700 leading-relaxed">No limitations. No restrictions. Just hearts connecting through words. Whether you want to share a story, express an opinion, offer advice, send good wishes, write a letter, create poetry, or leave a message for future generations – you are welcome here.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <h2 class="text-2xl font-semibold mb-6">Our Values</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-blue-50 rounded-lg flex items-center gap-3">
+                    <span class="text-2xl">???</span>
+                    <span class="font-semibold">Peace</span>
+                </div>
+                <div class="p-4 bg-green-50 rounded-lg flex items-center gap-3">
+                    <span class="text-2xl">??</span>
+                    <span class="font-semibold">Unity</span>
+                </div>
+                <div class="p-4 bg-purple-50 rounded-lg flex items-center gap-3">
+                    <span class="text-2xl">??</span>
+                    <span class="font-semibold">Forgiveness</span>
+                </div>
+                <div class="p-4 bg-yellow-50 rounded-lg flex items-center gap-3">
+                    <span class="text-2xl">??</span>
+                    <span class="font-semibold">Diversity</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+            <h2 class="text-2xl font-semibold mb-4">Join Us</h2>
+            <p class="text-gray-700 mb-6">Every voice adds to the chorus of peace. Yours is needed.</p>
+            <a href="/peaceforyou/write/" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700">Share Your Voice Today</a>
+        </div>
+    </div>
+</body>
+</html>

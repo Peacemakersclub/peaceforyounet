@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy – Peace For You Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/peaceforyou/" class="text-2xl font-bold text-blue-600">??? Peace For You Network</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-24 pb-12 px-4 max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-8">Privacy Policy</h1>
+        
+        <div class="bg-white rounded-lg shadow-lg p-8 space-y-6">
+            <div>
+                <h2 class="text-xl font-semibold mb-3">Our Commitment</h2>
+                <p class="text-gray-700">We respect your privacy. We only collect information you voluntarily provide (email for profiles). We do not sell your data.</p>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold mb-3">What We Collect</h2>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Email address (only if you choose to create a profile)</li>
+                    <li>Name (optional, can be anonymous)</li>
+                    <li>Country (optional)</li>
+                    <li>Content you share (stories, etc.)</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold mb-3">What We DON'T Collect</h2>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>No tracking cookies</li>
+                    <li>No IP addresses</li>
+                    <li>No browsing history</li>
+                    <li>No location tracking</li>
+                    <li>No ads, so no ad data</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold mb-3">Your Rights</h2>
+                <p class="text-gray-700">You can request deletion of your data anytime by contacting us. Your stories belong to you.</p>
+            </div>
+
+            <div class="bg-green-50 p-4 rounded-lg">
+                <p class="text-sm text-gray-600">We use Cloudflare for security. No third-party tracking.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

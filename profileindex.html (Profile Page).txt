@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile – Peace For You Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/peaceforyou/" class="text-2xl font-bold text-blue-600">??? Peace For You Network</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/peaceforyou/" class="text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="/peaceforyou/write/" class="text-gray-700 hover:text-blue-600">Share</a>
+                    <a href="/peaceforyou/read/" class="text-gray-700 hover:text-blue-600">Read</a>
+                    <a href="/peaceforyou/profile/" class="text-blue-600 font-semibold">My Peace</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-24 pb-12 px-4 max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-8">My Peace Journey</h1>
+
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 bg-blue-50 rounded-lg">
+                    <div id="totalPoints" class="text-3xl font-bold text-blue-600">0</div>
+                    <div class="text-gray-600">Points</div>
+                </div>
+                <div class="p-4 bg-green-50 rounded-lg">
+                    <div id="totalContributions" class="text-3xl font-bold text-green-600">0</div>
+                    <div class="text-gray-600">Contributions</div>
+                </div>
+                <div class="p-4 bg-purple-50 rounded-lg">
+                    <div id="totalBadges" class="text-3xl font-bold text-purple-600">0</div>
+                    <div class="text-gray-600">Badges</div>
+                </div>
+                <div class="p-4 bg-orange-50 rounded-lg">
+                    <div id="totalReactions" class="text-3xl font-bold text-orange-600">0</div>
+                    <div class="text-gray-600">Reactions</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-semibold mb-6">Your Contributions</h2>
+            <div id="contributionsList" class="space-y-4"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userEmail = localStorage.getItem('currentUser');
+            if (!userEmail) {
+                window.location.href = '/peaceforyou/login.html';
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('peace_users') || '{}');
+            const user = users[userEmail] || { contributions: [], points: 0, badges: [] };
+            const allContent = JSON.parse(localStorage.getItem('peace_content') || '[]');
+            const userContent = allContent.filter(c => c.author?.email === userEmail);
+
+            document.getElementById('totalPoints').textContent = user.points || 0;
+            document.getElementById('totalContributions').textContent = userContent.length;
+            document.getElementById('totalBadges').textContent = (user.badges || []).length;
+            
+            const totalReactions = userContent.reduce((sum, c) => sum + (c.reactions?.heart || 0), 0);
+            document.getElementById('totalReactions').textContent = totalReactions;
+
+            const contributionsList = document.getElementById('contributionsList');
+            if (userContent.length === 0) {
+                contributionsList.innerHTML = '<p class="text-gray-400 text-center">No contributions yet.</p>';
+            } else {
+                contributionsList.innerHTML = userContent.slice().reverse().map(item => `
+                    <div class="p-4 border rounded-lg">
+                        <div class="flex justify-between">
+                            <div>
+                                <h3 class="font-semibold">${item.title || 'Untitled'}</h3>
+                                <p class="text-sm text-gray-500">${item.type} · ${new Date(item.timestamp).toLocaleDateString()}</p>
+                            </div>
+                            <span class="text-sm">?? ${item.reactions?.heart || 0}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html>

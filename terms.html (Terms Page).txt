@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms – Peace For You Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/peaceforyou/" class="text-2xl font-bold text-blue-600">??? Peace For You Network</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-24 pb-12 px-4 max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-8">Terms of Use</h1>
+        
+        <div class="bg-white rounded-lg shadow-lg p-8 space-y-6">
+            <div>
+                <h2 class="text-xl font-semibold mb-3">1. Welcome</h2>
+                <p class="text-gray-700">Welcome to Peace For You Network. By using our platform, you agree to share content that promotes peace, unity, forgiveness, diversity, and understanding.</p>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold mb-3">2. Content Guidelines</h2>
+                <p class="text-gray-700 mb-2">We welcome all forms of expression that align with our mission. However, we do not tolerate:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li>Hate speech or incitement to violence</li>
+                    <li>Harassment or bullying</li>
+                    <li>Illegal content</li>
+                    <li>Malicious misinformation</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold mb-3">3. Your Content</h2>
+                <p class="text-gray-700">Your content remains yours. You grant us permission to display it on our platform. You can request deletion at any time.</p>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold mb-3">4. Moderation</h2>
+                <p class="text-gray-700">We reserve the right to remove content that violates these terms. Users may report concerns through our platform.</p>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded-lg">
+                <p class="text-sm text-gray-600">Last updated: January 2024</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
