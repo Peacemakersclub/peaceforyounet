@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peace For You Network – Share Your Heart</title>
+    <title>Peace For You Network â€“ Share Your Heart</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -43,7 +43,7 @@
             <h1 class="text-5xl font-bold text-gray-800 mb-4">Write Today for a Better Tomorrow</h1>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">
                 A network for peace, unity, forgiveness, diversity, and reconciliation. 
-                No limitations – write stories, opinions, advice, wishes, letters, anything.
+                No limitations â€“ write stories, opinions, advice, wishes, letters, anything.
             </p>
             
             <!-- Live Stats -->
@@ -228,7 +228,7 @@
                     <span class="text-xs bg-gray-100 px-2 py-1 rounded">${item.type}</span>
                     <h3 class="font-semibold mt-2">${item.title || 'Untitled'}</h3>
                     <p class="text-sm text-gray-600 mt-1">${(item.content || '').substring(0, 100)}...</p>
-                    <p class="text-xs text-gray-400 mt-2">${item.author?.name || 'Anonymous'} · ${new Date(item.timestamp).toLocaleDateString()}</p>
+                    <p class="text-xs text-gray-400 mt-2">${item.author?.name || 'Anonymous'} Â· ${new Date(item.timestamp).toLocaleDateString()}</p>
                 </div>
             `).join('');
         }
